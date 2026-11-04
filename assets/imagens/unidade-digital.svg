@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Unidade digital representada por um notebook com a plataforma aberta">
+  <defs><linearGradient id="u3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0C4DA2"/><stop offset="1" stop-color="#072B5E"/></linearGradient></defs>
+  <rect width="800" height="600" fill="url(#u3)"/>
+  <circle cx="120" cy="110" r="110" fill="#00A9E0" opacity="0.18"/>
+  <circle cx="700" cy="500" r="140" fill="#00A9E0" opacity="0.14"/>
+  <rect x="180" y="130" width="440" height="280" rx="16" fill="#F4F7FB"/>
+  <rect x="200" y="150" width="400" height="240" rx="8" fill="#072B5E"/>
+  <path d="M140 410 h520 l34 44 h-588 Z" fill="#C9DEF5"/>
+  <rect x="330" y="422" width="140" height="10" rx="5" fill="#9CC6F2"/>
+  <rect x="222" y="172" width="356" height="34" rx="6" fill="#0C4DA2"/>
+  <circle cx="246" cy="189" r="8" fill="#F2B705"/>
+  <rect x="268" y="183" width="180" height="12" rx="6" fill="#9CC6F2"/>
+  <g fill="#0C4DA2">
+    <rect x="222" y="224" width="104" height="70" rx="6"/><rect x="340" y="224" width="104" height="70" rx="6"/><rect x="458" y="224" width="120" height="70" rx="6"/>
+  </g>
+  <g fill="#00A9E0">
+    <rect x="236" y="240" width="60" height="8" rx="4"/><rect x="354" y="240" width="60" height="8" rx="4"/><rect x="472" y="240" width="60" height="8" rx="4"/>
+  </g>
+  <g fill="#9CC6F2" opacity="0.7">
+    <rect x="236" y="258" width="76" height="7" rx="3"/><rect x="354" y="258" width="76" height="7" rx="3"/><rect x="472" y="258" width="92" height="7" rx="3"/>
+  </g>
+  <rect x="222" y="312" width="240" height="12" rx="6" fill="#F4F7FB" opacity="0.8"/>
+  <rect x="222" y="336" width="180" height="12" rx="6" fill="#9CC6F2" opacity="0.6"/>
+  <rect x="470" y="314" width="108" height="34" rx="17" fill="#F2B705"/>
+  <g>
+    <rect x="620" y="150" width="110" height="90" rx="12" fill="#00A9E0"/>
+    <rect x="640" y="172" width="70" height="9" rx="4" fill="#FFFFFF"/>
+    <rect x="640" y="190" width="48" height="9" rx="4" fill="#FFFFFF" opacity="0.7"/>
+    <rect x="640" y="208" width="58" height="9" rx="4" fill="#FFFFFF" opacity="0.7"/>
+  </g>
+  <g transform="translate(96 470)">
+    <circle r="54" fill="#F2B705"/>
+    <path d="M-20 -14 h40 M-20 0 h40 M-20 14 h28" stroke="#072B5E" stroke-width="7" stroke-linecap="round"/>
+  </g>
+</svg>

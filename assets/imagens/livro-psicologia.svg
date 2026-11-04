@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" role="img" aria-label="Capa do livro Psicologia da Aprendizagem">
+  <rect width="400" height="520" fill="#124F8C"/>
+  <rect width="26" height="520" fill="#9CC6F2"/>
+  <path d="M120 350 v-50 a90 90 0 0 1 180 -10 a60 60 0 0 1 -34 56 v34 a16 16 0 0 1 -16 16 h-114 a16 16 0 0 1 -16 -16 Z" fill="#F4F7FB"/>
+  <g stroke="#00A9E0" stroke-width="7" fill="none" stroke-linecap="round">
+    <path d="M152 300 q20 -30 40 0 t40 0 t40 0"/>
+    <path d="M160 254 q22 -26 44 0 t44 0"/>
+  </g>
+  <circle cx="276" cy="330" r="14" fill="#F2B705"/>
+  <g fill="#F2B705">
+    <circle cx="108" cy="170" r="10"/><circle cx="330" cy="200" r="8"/><circle cx="86" cy="240" r="7"/>
+  </g>
+  <rect x="62" y="430" width="200" height="12" rx="6" fill="#F4F7FB"/>
+  <rect x="62" y="456" width="136" height="10" rx="5" fill="#9CC6F2"/>
+</svg>

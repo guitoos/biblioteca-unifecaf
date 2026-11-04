@@ -1,0 +1,942 @@
+/* ==========================================================================
+   BIBLIOTECA DIGITAL UniFECAF — FOLHA DE ESTILO PRINCIPAL
+   Autor: Guilherme Oliveira Silva Santos — RA 143422
+   Disciplina: Design Web
+
+   SUMÁRIO
+   01. Variáveis (design tokens)
+   02. Reset e bases
+   03. Utilitários e acessibilidade
+   04. Componentes reutilizáveis (botões e títulos de seção)
+   05. Cabeçalho e navegação
+   06. Seção 1 — Hero
+   07. Seção 2 — Sobre a nossa biblioteca
+   08. Seção 3 — Faixa de destaque
+   09. Seção 4 — Nossos livros
+   10. Seção 5 — As unidades
+   11. Seção 6 — Contatos
+   12. Rodapé
+   13. Responsividade (breakpoints min-width)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01. VARIÁVEIS — paleta baseada na identidade visual da UniFECAF
+   ========================================================================== */
+
+:root {
+    /* Azuis institucionais */
+    --azul-noite:        #04173A;
+    --azul-profundo:     #072B5E;
+    --azul-institucional:#0C4DA2;
+    --azul-ciano:        #00A9E0;
+    --azul-suave:        #9CC6F2;
+    --azul-nevoa:        #E8F1FC;
+
+    /* Apoio e destaque */
+    --amarelo-destaque:  #F2B705;
+
+    /* Neutros */
+    --branco:            #FFFFFF;
+    --cinza-fundo:       #F5F8FC;
+    --cinza-borda:       #D9E4F2;
+    --cinza-texto:       #333F4D;
+    --cinza-apoio:       #5C6B7E;
+
+    /* Tipografia */
+    --fonte-titulo: "Poppins", "Segoe UI", "Trebuchet MS", sans-serif;
+    --fonte-texto:  "Inter", "Segoe UI", Arial, sans-serif;
+
+    /* Espaçamentos e formas */
+    --largura-maxima: 1200px;
+    --espaco-secao:   clamp(3rem, 7vw, 6rem);
+    --raio:           12px;
+    --raio-grande:    20px;
+    --sombra:         0 10px 30px rgba(7, 43, 94, 0.12);
+    --sombra-forte:   0 18px 40px rgba(4, 23, 58, 0.22);
+    --transicao:      0.25s ease-in-out;
+}
+
+
+/* ==========================================================================
+   02. RESET E BASES
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* compensa a altura do cabeçalho fixo ao usar os links internos */
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: var(--fonte-texto);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--cinza-texto);
+    background-color: var(--branco);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--fonte-titulo);
+    line-height: 1.2;
+    color: var(--azul-profundo);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: var(--azul-institucional);
+    text-decoration: none;
+    transition: color var(--transicao);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Regra central da responsividade das mídias:
+   nenhuma imagem ultrapassa a largura do seu contêiner nem se deforma. */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* ==========================================================================
+   03. UTILITÁRIOS E ACESSIBILIDADE
+   ========================================================================== */
+
+.container {
+    width: 100%;
+    max-width: var(--largura-maxima);
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+/* Link de salto: fica fora da tela e só aparece ao receber foco do teclado */
+.pular-conteudo {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 999;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--amarelo-destaque);
+    color: var(--azul-noite);
+    font-weight: 600;
+    border-radius: 0 0 var(--raio) var(--raio);
+    transition: top var(--transicao);
+}
+
+.pular-conteudo:focus {
+    top: 0;
+}
+
+/* Indicador de foco visível e consistente em todo o site */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--amarelo-destaque);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Respeita quem prefere menos animação no sistema operacional */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+
+/* ==========================================================================
+   04. COMPONENTES REUTILIZÁVEIS
+   ========================================================================== */
+
+/* --- Botões --- */
+.botao {
+    display: inline-block;
+    padding: 0.85rem 1.75rem;
+    font-family: var(--fonte-titulo);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    transition: background-color var(--transicao),
+                color var(--transicao),
+                transform var(--transicao),
+                border-color var(--transicao);
+}
+
+.botao:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+.botao--primario {
+    background-color: var(--azul-institucional);
+    color: var(--branco);
+}
+
+.botao--primario:hover {
+    background-color: var(--azul-profundo);
+}
+
+.botao--secundario {
+    background-color: transparent;
+    color: var(--branco);
+    border-color: var(--branco);
+}
+
+.botao--secundario:hover {
+    background-color: var(--branco);
+    color: var(--azul-profundo);
+}
+
+/* --- Títulos de seção --- */
+.secao__titulo {
+    font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+/* Mesma estrutura de título, aplicada sobre fundos escuros */
+.secao__titulo--claro {
+    color: var(--branco);
+}
+
+/* Pequena régua decorativa sob o título, usada em todas as seções */
+.secao__titulo::after {
+    content: "";
+    display: block;
+    width: 72px;
+    height: 5px;
+    margin-top: 0.9rem;
+    border-radius: 999px;
+    background-color: var(--amarelo-destaque);
+}
+
+.secao__apoio {
+    max-width: 60ch;
+    margin-bottom: 2.5rem;
+    color: var(--cinza-apoio);
+}
+
+.secao__apoio--claro {
+    color: var(--azul-suave);
+}
+
+
+/* ==========================================================================
+   05. CABEÇALHO E NAVEGAÇÃO
+   ========================================================================== */
+
+.cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--azul-noite);
+    box-shadow: 0 2px 12px rgba(4, 23, 58, 0.35);
+}
+
+.cabecalho__interno {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.marca:hover {
+    text-decoration: none;
+}
+
+.marca__simbolo {
+    width: 42px;
+    height: 42px;
+}
+
+.marca__texto {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.marca__nome {
+    font-family: var(--fonte-titulo);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--branco);
+    letter-spacing: 0.02em;
+}
+
+.marca__sub {
+    font-size: 0.78rem;
+    color: var(--azul-suave);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.menu__lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3rem 0.4rem;
+}
+
+.menu__link {
+    display: inline-block;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.86rem;
+    font-weight: 500;
+    color: var(--branco);
+    border-radius: var(--raio);
+    border-bottom: 2px solid transparent;
+    transition: color var(--transicao), border-color var(--transicao);
+}
+
+.menu__link:hover {
+    color: var(--amarelo-destaque);
+    border-bottom-color: var(--amarelo-destaque);
+    text-decoration: none;
+}
+
+
+/* ==========================================================================
+   06. SEÇÃO 1 — HERO
+   ========================================================================== */
+
+.hero {
+    background-color: var(--azul-profundo);
+}
+
+.hero__imagem {
+    width: 100%;
+}
+
+.hero__conteudo {
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+    color: var(--branco);
+}
+
+.hero__selo {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--azul-noite);
+    background-color: var(--amarelo-destaque);
+    border-radius: 999px;
+}
+
+.hero__titulo {
+    font-size: clamp(1.9rem, 5.5vw, 3.4rem);
+    color: var(--branco);
+    margin-bottom: 1rem;
+}
+
+.hero__texto {
+    max-width: 52ch;
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+    color: var(--azul-nevoa);
+    margin-bottom: 1.8rem;
+}
+
+.hero__acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+}
+
+
+/* ==========================================================================
+   07. SEÇÃO 2 — SOBRE A NOSSA BIBLIOTECA
+   ========================================================================== */
+
+.sobre {
+    padding-top: var(--espaco-secao);
+    padding-bottom: var(--espaco-secao);
+    background-color: var(--azul-profundo);
+    color: var(--azul-nevoa);
+}
+
+.sobre__grade {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.sobre__figura {
+    border-radius: var(--raio-grande);
+    overflow: hidden;
+    box-shadow: var(--sombra-forte);
+}
+
+.sobre__figura img {
+    width: 100%;
+}
+
+.sobre__subtitulo {
+    margin-top: 3.5rem;
+    margin-bottom: 1.8rem;
+    font-size: 1.3rem;
+    color: var(--branco);
+}
+
+.servicos {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.servico {
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(156, 198, 242, 0.28);
+    border-radius: var(--raio-grande);
+    overflow: hidden;
+    transition: transform var(--transicao), border-color var(--transicao);
+}
+
+.servico:hover {
+    transform: translateY(-6px);
+    border-color: var(--amarelo-destaque);
+}
+
+.servico__imagem {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.servico__titulo {
+    margin: 1.2rem 1.25rem 0.5rem;
+    font-size: 1.05rem;
+    color: var(--branco);
+}
+
+.servico__texto {
+    margin: 0 1.25rem 1.5rem;
+    font-size: 0.92rem;
+    color: var(--azul-suave);
+}
+
+
+/* ==========================================================================
+   08. SEÇÃO 3 — FAIXA DE DESTAQUE
+   ========================================================================== */
+
+.faixa {
+    background-color: var(--azul-institucional);
+}
+
+.faixa__imagem {
+    width: 100%;
+}
+
+.faixa__conteudo {
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+    text-align: center;
+}
+
+.faixa__titulo {
+    font-size: clamp(1.4rem, 3.5vw, 2.1rem);
+    color: var(--branco);
+    max-width: 24ch;
+    margin: 0 auto 2.2rem;
+}
+
+.indicadores {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1rem;
+}
+
+.indicador {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.indicador__numero {
+    font-family: var(--fonte-titulo);
+    font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+    font-weight: 700;
+    color: var(--amarelo-destaque);
+}
+
+.indicador__rotulo {
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    color: var(--azul-nevoa);
+}
+
+
+/* ==========================================================================
+   09. SEÇÃO 4 — NOSSOS LIVROS
+   ========================================================================== */
+
+.livros {
+    padding-top: var(--espaco-secao);
+    padding-bottom: var(--espaco-secao);
+    background-color: var(--cinza-fundo);
+}
+
+.livros__grade {
+    display: grid;
+    gap: 1.75rem;
+}
+
+.livro {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background-color: var(--branco);
+    border: 1px solid var(--cinza-borda);
+    border-radius: var(--raio-grande);
+    box-shadow: var(--sombra);
+    transition: transform var(--transicao), box-shadow var(--transicao);
+}
+
+.livro:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 38px rgba(7, 43, 94, 0.2);
+}
+
+.livro__nome {
+    min-height: 2.4em;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--azul-institucional);
+}
+
+.livro__capa {
+    width: 100%;
+    max-width: 230px;
+    margin: 0 auto 1.25rem;
+    aspect-ratio: 10 / 13;
+    object-fit: cover;
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+}
+
+.livro__categoria {
+    margin-bottom: 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--azul-institucional);
+}
+
+.livro__texto {
+    font-size: 0.93rem;
+    color: var(--cinza-apoio);
+    margin-bottom: 1.5rem;
+}
+
+/* empurra o botão para a base do cartão, deixando todos alinhados */
+.livro__botao {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+
+/* ==========================================================================
+   10. SEÇÃO 5 — AS UNIDADES
+   ========================================================================== */
+
+.unidades {
+    padding-top: var(--espaco-secao);
+    padding-bottom: var(--espaco-secao);
+    background-color: var(--azul-noite);
+    color: var(--azul-nevoa);
+}
+
+.unidade {
+    display: grid;
+    gap: 1.5rem;
+    padding: 1.75rem 0;
+    border-top: 1px solid rgba(156, 198, 242, 0.22);
+}
+
+.unidade:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+.unidade__imagem {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--raio-grande);
+    box-shadow: var(--sombra-forte);
+}
+
+.unidade__nome {
+    margin-bottom: 0.9rem;
+    font-size: clamp(1.15rem, 2.8vw, 1.5rem);
+    letter-spacing: 0.08em;
+    color: var(--branco);
+}
+
+.unidade__info {
+    margin-top: 1rem;
+    padding-left: 0.9rem;
+    border-left: 4px solid var(--amarelo-destaque);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--azul-suave);
+}
+
+
+/* ==========================================================================
+   11. SEÇÃO 6 — CONTATOS
+   ========================================================================== */
+
+.contato {
+    padding-top: var(--espaco-secao);
+    padding-bottom: var(--espaco-secao);
+    background-color: var(--azul-nevoa);
+}
+
+.contato__grade {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.contato__blocos {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.contato__bloco {
+    padding: 1.75rem;
+    background-color: var(--branco);
+    border-radius: var(--raio-grande);
+    border-left: 6px solid var(--azul-institucional);
+    box-shadow: var(--sombra);
+}
+
+.contato__subtitulo {
+    margin-bottom: 0.9rem;
+    font-size: 1.15rem;
+}
+
+.contato__lista {
+    margin-top: 1.1rem;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.contato__lista li {
+    font-size: 0.95rem;
+}
+
+.contato__rotulo {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cinza-apoio);
+}
+
+.contato__figura {
+    border-radius: var(--raio-grande);
+    overflow: hidden;
+    background-color: var(--branco);
+    box-shadow: var(--sombra);
+}
+
+.contato__figura img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.contato__legenda {
+    padding: 0.9rem 1.25rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--azul-profundo);
+    text-align: center;
+}
+
+
+/* ==========================================================================
+   12. RODAPÉ
+   ========================================================================== */
+
+.rodape {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    background-color: var(--azul-noite);
+    border-top: 4px solid var(--amarelo-destaque);
+}
+
+.rodape__interno {
+    text-align: center;
+}
+
+.rodape__marca {
+    margin-bottom: 0.5rem;
+    font-family: var(--fonte-titulo);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--branco);
+}
+
+.rodape__texto {
+    margin-bottom: 0.25rem;
+    font-size: 0.88rem;
+    color: var(--azul-suave);
+}
+
+
+/* ==========================================================================
+   13. RESPONSIVIDADE
+   O projeto foi escrito em abordagem "mobile first": as regras acima valem
+   para o celular e os blocos abaixo acrescentam colunas conforme a tela
+   cresce, usando sempre min-width.
+   ========================================================================== */
+
+/* --- Celular grande / tablet pequeno — a partir de 600px --- */
+@media (min-width: 600px) {
+
+    .menu__lista {
+        gap: 0.35rem 1rem;
+    }
+
+    .menu__link {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    .servicos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .livros__grade {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .indicadores {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+}
+
+/* --- Tablet — a partir de 768px --- */
+@media (min-width: 768px) {
+
+    .cabecalho__interno {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .sobre__grade {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
+
+    /* a imagem central ocupa as duas colunas enquanto há espaço apenas para dois blocos */
+    .sobre__figura {
+        grid-column: 1 / -1;
+        order: -1;
+    }
+
+    .unidade {
+        grid-template-columns: 1fr 1.2fr;
+        align-items: center;
+        gap: 2.5rem;
+        padding: 2.5rem 0;
+    }
+
+    .contato__blocos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* --- Notebook / desktop — a partir de 992px --- */
+@media (min-width: 992px) {
+
+    .menu__link {
+        font-size: 0.95rem;
+    }
+
+    /* Hero passa a ter a imagem como plano de fundo, com véu escuro
+       garantindo o contraste do texto sobre a ilustração. */
+    .hero {
+        position: relative;
+        display: flex;
+        align-items: center;
+        min-height: 540px;
+        overflow: hidden;
+    }
+
+    .hero__imagem {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(100deg,
+                    rgba(4, 23, 58, 0.95) 0%,
+                    rgba(4, 23, 58, 0.88) 38%,
+                    rgba(4, 23, 58, 0.25) 72%,
+                    rgba(4, 23, 58, 0.10) 100%);
+    }
+
+    .hero__conteudo {
+        position: relative;
+        z-index: 1;
+        max-width: 640px;
+        margin-right: auto;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    /* Distribuição em três colunas, como no protótipo:
+       texto — imagem — texto */
+    .sobre__grade {
+        grid-template-columns: 1fr 1.15fr 1fr;
+        gap: 2.5rem;
+    }
+
+    .sobre__figura {
+        grid-column: auto;
+        order: 0;
+    }
+
+    .servicos {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .livros__grade {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    /* Faixa de destaque também vira imagem de fundo no desktop */
+    .faixa {
+        position: relative;
+        display: flex;
+        align-items: center;
+        min-height: 360px;
+        overflow: hidden;
+    }
+
+    .faixa__imagem {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .faixa::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(4, 23, 58, 0.72);
+    }
+
+    .faixa__conteudo {
+        position: relative;
+        z-index: 1;
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+    }
+
+    .faixa__titulo {
+        max-width: 32ch;
+    }
+
+    /* Alterna o lado da imagem nas unidades, criando ritmo na leitura.
+       As proporções das colunas também são invertidas para que a imagem
+       mantenha sempre a mesma largura. */
+    .unidade:nth-of-type(even) {
+        grid-template-columns: 1.2fr 1fr;
+    }
+
+    .unidade:nth-of-type(even) .unidade__imagem {
+        order: 2;
+    }
+
+    .contato__grade {
+        grid-template-columns: 1.4fr 1fr;
+        align-items: start;
+    }
+
+    .contato__figura {
+        position: sticky;
+        top: 110px;
+    }
+
+    .rodape__interno {
+        text-align: left;
+    }
+
+}
+
+/* --- Telas grandes — a partir de 1200px --- */
+@media (min-width: 1200px) {
+
+    .hero {
+        min-height: 620px;
+    }
+
+    .livro {
+        padding: 1.75rem;
+    }
+
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" role="img" aria-label="Capa do livro Direito Constitucional">
+  <rect width="400" height="520" fill="#04203F"/>
+  <rect width="26" height="520" fill="#F2B705"/>
+  <g stroke="#F4F7FB" stroke-width="8" stroke-linecap="round" fill="none">
+    <path d="M206 140 v220"/>
+    <path d="M110 180 h192"/>
+    <path d="M110 180 l-34 74 h68 Z" fill="#00A9E0" stroke="none"/>
+    <path d="M302 180 l-34 74 h68 Z" fill="#00A9E0" stroke="none"/>
+    <path d="M76 254 a34 34 0 0 0 68 0"/>
+    <path d="M268 254 a34 34 0 0 0 68 0"/>
+    <path d="M150 360 h112"/>
+  </g>
+  <circle cx="206" cy="132" r="16" fill="#F2B705"/>
+  <rect x="62" y="430" width="200" height="12" rx="6" fill="#F4F7FB"/>
+  <rect x="62" y="456" width="144" height="10" rx="5" fill="#9CC6F2"/>
+</svg>

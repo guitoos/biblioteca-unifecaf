@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" role="img" aria-label="Capa do livro Metodologia Cientifica">
+  <rect width="400" height="520" fill="#00A9E0"/>
+  <rect width="26" height="520" fill="#072B5E"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="6" opacity="0.9">
+    <circle cx="206" cy="240" r="48"/>
+    <ellipse cx="206" cy="240" rx="120" ry="48"/>
+    <ellipse cx="206" cy="240" rx="120" ry="48" transform="rotate(60 206 240)"/>
+    <ellipse cx="206" cy="240" rx="120" ry="48" transform="rotate(-60 206 240)"/>
+  </g>
+  <circle cx="206" cy="240" r="24" fill="#F2B705"/>
+  <circle cx="326" cy="240" r="12" fill="#072B5E"/>
+  <circle cx="146" cy="136" r="12" fill="#072B5E"/>
+  <circle cx="146" cy="344" r="12" fill="#072B5E"/>
+  <rect x="62" y="430" width="200" height="12" rx="6" fill="#072B5E"/>
+  <rect x="62" y="456" width="150" height="10" rx="5" fill="#F4F7FB"/>
+</svg>

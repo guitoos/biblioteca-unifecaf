@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" role="img" aria-label="Capa do livro Fundamentos de Administracao">
+  <rect width="400" height="520" fill="#0C4DA2"/>
+  <rect width="26" height="520" fill="#F2B705"/>
+  <g fill="#F4F7FB" opacity="0.95">
+    <rect x="76" y="300" width="46" height="90" rx="6"/>
+    <rect x="138" y="250" width="46" height="140" rx="6"/>
+    <rect x="200" y="200" width="46" height="190" rx="6"/>
+    <rect x="262" y="150" width="46" height="240" rx="6"/>
+  </g>
+  <path d="M86 290 L160 236 L222 188 L292 132" fill="none" stroke="#F2B705" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M258 126 h44 v44" fill="none" stroke="#F2B705" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="76" y="390" width="232" height="8" rx="4" fill="#00A9E0"/>
+  <rect x="62" y="430" width="200" height="12" rx="6" fill="#F4F7FB"/>
+  <rect x="62" y="456" width="124" height="10" rx="5" fill="#9CC6F2"/>
+</svg>

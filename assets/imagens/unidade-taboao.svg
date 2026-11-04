@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Fachada do campus sede da biblioteca">
+  <defs><linearGradient id="u1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D7E7F9"/><stop offset="1" stop-color="#EFF5FC"/></linearGradient></defs>
+  <rect width="800" height="600" fill="url(#u1)"/>
+  <circle cx="660" cy="120" r="70" fill="#F2B705" opacity="0.65"/>
+  <g fill="#0C4DA2" opacity="0.18">
+    <rect x="40" y="220" width="120" height="260" rx="8"/>
+    <rect x="660" y="260" width="110" height="220" rx="8"/>
+  </g>
+  <rect x="180" y="160" width="440" height="320" rx="10" fill="#0C4DA2"/>
+  <rect x="180" y="160" width="440" height="40" rx="10" fill="#072B5E"/>
+  <g fill="#C9DEF5">
+    <rect x="212" y="228" width="68" height="60" rx="6"/><rect x="296" y="228" width="68" height="60" rx="6"/>
+    <rect x="380" y="228" width="68" height="60" rx="6"/><rect x="464" y="228" width="68" height="60" rx="6"/>
+    <rect x="548" y="228" width="44" height="60" rx="6"/>
+    <rect x="212" y="312" width="68" height="60" rx="6"/><rect x="296" y="312" width="68" height="60" rx="6"/>
+    <rect x="464" y="312" width="68" height="60" rx="6"/><rect x="548" y="312" width="44" height="60" rx="6"/>
+  </g>
+  <rect x="380" y="312" width="68" height="60" rx="6" fill="#F2B705"/>
+  <rect x="350" y="392" width="100" height="88" rx="6" fill="#072B5E"/>
+  <rect x="396" y="392" width="8" height="88" fill="#9CC6F2"/>
+  <path d="M320 392 h160 l-18 -34 h-124 Z" fill="#00A9E0"/>
+  <rect x="0" y="480" width="800" height="120" fill="#CBDDF2"/>
+  <rect x="0" y="480" width="800" height="10" fill="#0C4DA2" opacity="0.35"/>
+  <g fill="#0C4DA2" opacity="0.5">
+    <rect x="120" y="520" width="90" height="10" rx="5"/><rect x="600" y="520" width="90" height="10" rx="5"/>
+  </g>
+  <g><rect x="110" y="420" width="14" height="60" rx="7" fill="#6B4A2F"/><circle cx="117" cy="404" r="46" fill="#1F8A70"/></g>
+  <g><rect x="684" y="430" width="14" height="50" rx="7" fill="#6B4A2F"/><circle cx="691" cy="416" r="38" fill="#1F8A70"/></g>
+  <g><circle cx="300" cy="438" r="14" fill="#F7C9A4"/><path d="M286 480 v-20 a14 14 0 0 1 28 0 v20 Z" fill="#00A9E0"/></g>
+  <g><circle cx="510" cy="442" r="13" fill="#C98E63"/><path d="M497 480 v-18 a13 13 0 0 1 26 0 v18 Z" fill="#F2B705"/></g>
+</svg>
